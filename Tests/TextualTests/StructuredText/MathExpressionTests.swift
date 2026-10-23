@@ -29,6 +29,30 @@
         assertSnapshot(of: view, as: .textualImage(layout: layout))
       }
 
+      @Test func inlineScripts() {
+        let view = VStack(alignment: .leading, spacing: 24) {
+          inlineScriptExamples
+            .font(.body)
+          inlineScriptExamples
+            .font(.title3)
+        }
+        .background(Color.guide)
+        .padding(.horizontal)
+
+        assertSnapshot(of: view, as: .textualImage(layout: layout))
+      }
+
+      private var inlineScriptExamples: some View {
+        VStack(alignment: .leading, spacing: 16) {
+          StructuredText(
+            markdown: "What is $2^{10}$, approximately?",
+            syntaxExtensions: [.math]
+          )
+          StructuredText(markdown: "$O(2^d)$", syntaxExtensions: [.math])
+          StructuredText(markdown: "$x_{12}$ and $x_1^2$", syntaxExtensions: [.math])
+        }
+      }
+
       @Test func mathBlockAlignment() {
         let view = StructuredText(
           markdown: """
