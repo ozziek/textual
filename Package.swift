@@ -19,7 +19,7 @@ let package = Package(
     .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.18.7"),
     .package(
       url: "https://github.com/ozziek/swiftui-math",
-      revision: "358c60c823ca706c1c5dee35d0a0ec6e73d5d04f"
+      revision: "69336a9dcec268991063977a6f016c6b2c4d94c6"
     ),
   ],
   targets: [
